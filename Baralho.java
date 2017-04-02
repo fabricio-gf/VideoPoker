@@ -1,11 +1,11 @@
 
 public class Baralho {
 	Carta cartas[] = new Carta[52];
-	int pos = 0; // Marca quais posiÁıes do baralho ja foram entregues
+	int pos = 0; // Marca quais posi√ß√µes do baralho ja foram entregues
 
 	/**
 	 * Construtor do Baralho, inicializa todas as cartas do baralho em sequencia
-	 * de 2 a ¡s e de ouros ‡ paus
+	 * de 2 a √Ås e de ouros √† paus
 	 */
 	public Baralho() {
 		int i = 0;
@@ -59,6 +59,7 @@ public class Baralho {
 
 		for (int i = 0; i < 52; i++) {
 			System.out.println(cartas[i].getValor() + " " + cartas[i].getNaipe());
+			System.out.println(cartas[i].toString());
 		}
 
 		b.embaralhar();
