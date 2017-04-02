@@ -8,52 +8,32 @@ public class Carta {
 		this.naipe = naipe;
 	}
 	
-
 	public int getValor() {
 		return valor;
 	}
-
-
 
 	public int getNaipe() {
 		return naipe;
 	}
 	
 	private String valorToString() {
-		switch(valor) {
-			case 0:
-				return "A";
-			case 1:
-				return "2";
-			case 2:
-				return "3";
-			case 3:
-				return "4";
-			case 4:
-				return "5";
-			case 5:
-				return "6";
-			case 6:
-				return "7";
-			case 7:
-				return "8";
-			case 8:
-				return "9";
-			case 9:
-				return "10";
-			case 10:
-				return "Q";
-			case 11:
-				return "J";
-			case 12:
-				return "K";
-			default:
-				return "";
-		}
+		if (valor >= 0 && valor <= 8)
+			return Integer.toString(valor+2);
+		else if (valor == 9)
+			return "Q";
+		else if (valor == 10)
+			return "J";
+		else if (valor == 11)
+			return "K";
+		else if (valor == 12)
+			return "A";
+		else
+			return "";
 	}
-	
+
+@Override
 	public String toString() {
-		String carta = "", s0 = ".------.\n", s1 = "`------Â´\n";
+		String carta = "", s0 = ".------.\n", s1 = "`------´\n";
 		
 		for (int i = 0; i < 6; i++) {
 			if (i == 0)
@@ -62,34 +42,39 @@ public class Carta {
 				carta += s1;
 			else if (i == 1) {
 				carta += "|" + valorToString();
+				if (valor != 8)
+					carta += ' ';
 				if (naipe == 0)
-					carta += " /\\  |\n";
+					carta += "/\\  |\n";
 				else if(naipe == 1)
-					carta += "  .  |\n";
+					carta += ".   |\n";
 				else if (naipe == 2)
-					carta += "_  _ |\n";
+					carta += "    |\n";
 				else if (naipe == 3)
-					carta += "  _  |\n";
+					carta += "_   |\n";
 			}
 			if (i == 2) {
 				if (naipe == 0)
 					carta += "| /  \\ |\n| \\  / |\n";
 				else if(naipe == 1)
-					carta += "|  / \\ |\n| (_,_)|\n";
+					carta += "| / \\  |\n|(_,_) |\n";
 				else if (naipe == 2)
-					carta += "|( \\/ )|\n| \\  / |\n";
+					carta += "|(¯\\/¯)|\n| \\  / |\n";
 				else if (naipe == 3)
-					carta += "|  ( ) |\n| (_x_)|\n";
+					carta += "| ( )  |\n|(_x_) |\n";
 			}
 			else if (i == 4) {
 				if (naipe == 0)
-					carta += "|  \\/ " + valorToString() + "|\n";
+					carta += "|  \\/";
 				else if(naipe == 1)
-					carta += "|   I " + valorToString() + "|\n";
+					carta += "|  I ";
 				else if (naipe == 2)
-					carta += "|  \\/ " + valorToString() + "|\n";
+					carta += "|  \\/";
 				else if (naipe == 3)
-					carta += "|   Y " + valorToString() + "|\n";
+					carta += "|  Y ";
+				if (valor != 8)
+					carta += ' ';
+				carta += valorToString() + "|\n";
 			}
 		}
 		
@@ -99,8 +84,10 @@ public class Carta {
 
 	public static void main(String[] args) {
 		for (int i = 0; i < 13; i++) {
-			Carta carta = new Carta(i, i%4);
-			System.out.println(carta);
+			for(int j = 0; j < 4; j++) {
+				Carta carta = new Carta(i, j);
+				System.out.println(carta);
+			}
 		}
 	}
 }
