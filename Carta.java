@@ -9,7 +9,7 @@ public class Carta {
 	}
 	
 	public int getValor() {
-		return valor;
+		return valor+2;
 	}
 
 	public int getNaipe() {
