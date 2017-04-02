@@ -1,4 +1,8 @@
-
+/**
+ * Classe desenhada para se comportar como um baralho de 52 cartas.
+ * Ela implementa métodos para distribuir cartas, embaralhar e trocar cartas com o baralho
+ * @author Bruno Flávio - 9791330
+ */
 public class Baralho {
 	Carta cartas[] = new Carta[52];
 	int pos = 0; // Marca quais posições do baralho ja foram entregues
@@ -19,6 +23,9 @@ public class Baralho {
 
 	}
 
+	/**
+	 * Método que reinicia o baralho (recolhe as cartas) e embaralha
+	 */
 	public void embaralhar() {
 		Random r = new Random();
 		pos = 0;
@@ -32,20 +39,29 @@ public class Baralho {
 		}
 	}
 
+	/**
+	 * Método que distribui as cartas do baralho
+	 * @param n - Inteiro com o número de cartas a ser distribuido
+	 * @return Carta[] - Vetor com as cartas distribuidas
+	 * @throws IllegalArgumentException - Se o parametro n for maior que a capacidade atual do baralho
+	 */
 	public Carta[] darCartas(int n) throws Exception {
 		Carta ret[] = new Carta[n];
 
-		for (int i = 0; i < n; i++) {
-			if (pos >= 52)
-				throw new Exception("Baralho vazio!");
+		if(n > 52 - pos) throw new IllegalArgumentException("O baralho não possui cartas suficientes");
 
+		for (int i = 0; i < n; i++) {
 			ret[i] = cartas[pos];
 			pos++;
 		}
 
 		return ret;
 	}
-	
+
+	/**
+	 * Método que recolhe ao baralho um vetor de cartas e as trocam com novas cartas
+	 * @param cartas - Vetor do tipo Carta, que contém as cartas a serem trocadas
+	 */
 	public void trocarCartas(Carta[] cartas){
 		for(int i = 0; i < cartas.length; i++){
 			cartas[i] = this.cartas[pos];
@@ -53,6 +69,10 @@ public class Baralho {
 		}
 	}
 
+	/**
+	 * Método usado somente para debug
+	 * @param args - Sem utilidade
+	 */
 	public static void main(String[] args) throws Exception {
 		Baralho b = new Baralho();
 		Carta cartas[] = b.darCartas(52);
