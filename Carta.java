@@ -4,7 +4,7 @@ public class Carta {
 	private int naipe;
 	
 	public Carta(int valor, int naipe) {
-		this.valor = valor;
+		this.valor = valor-2;
 		this.naipe = naipe;
 	}
 	
@@ -33,7 +33,7 @@ public class Carta {
 
 @Override
 	public String toString() {
-		String carta = "", s0 = ".------.\n", s1 = "`------�\n";
+		String carta = "", s0 = ".------.\n", s1 = "`------´\n";
 		
 		for (int i = 0; i < 6; i++) {
 			if (i == 0)
@@ -59,7 +59,7 @@ public class Carta {
 				else if(naipe == 1)
 					carta += "| / \\  |\n|(_,_) |\n";
 				else if (naipe == 2)
-					carta += "|(�\\/�)|\n| \\  / |\n";
+					carta += "|(¯\\/¯)|\n| \\  / |\n";
 				else if (naipe == 3)
 					carta += "| ( )  |\n|(_x_) |\n";
 			}
@@ -98,26 +98,26 @@ public class Carta {
 	|( \/ )| 
 	| \  / |
 	|  \/ N|
-	`------´
+	`------Â´
 	
 	.------.
 	|N /\  |
 	| /  \ | 
 	| \  / |
 	|  \/ N|
-	`------´
+	`------Â´
 	
 	.------.
 	|N  .  |
 	|  / \ | 
 	| (_,_)|
 	|   I N|
-	`------´
+	`------Â´
 	
 	.------.
 	|N  _  |
 	|  ( ) | 
 	| (_x_)|
 	|   Y N|
-	`------´
+	`------Â´
 */
