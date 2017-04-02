@@ -4,8 +4,8 @@
  * @author Bruno Flávio - 9791330
  */
 public class Baralho {
-	Carta cartas[] = new Carta[52];
-	int pos = 0; // Marca quais posições do baralho ja foram entregues
+	private Carta cartas[] = new Carta[52];
+	private int pos = 0; // Marca quais posições do baralho ja foram entregues
 
 	/**
 	 * Construtor do Baralho, inicializa todas as cartas do baralho em sequencia
@@ -45,7 +45,7 @@ public class Baralho {
 	 * @return Carta[] - Vetor com as cartas distribuidas
 	 * @throws IllegalArgumentException - Se o parametro n for maior que a capacidade atual do baralho
 	 */
-	public Carta[] darCartas(int n) throws Exception {
+	public Carta[] darCartas(int n) throws IllegalArgumentException{
 		Carta ret[] = new Carta[n];
 
 		if(n > 52 - pos) throw new IllegalArgumentException("O baralho não possui cartas suficientes");
