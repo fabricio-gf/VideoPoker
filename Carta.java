@@ -33,7 +33,7 @@ public class Carta {
 
 @Override
 	public String toString() {
-		String carta = "", s0 = ".------.\n", s1 = "`------´\n";
+		String carta = "", s0 = ".------.\n", s1 = "*------*\n";
 		
 		for (int i = 0; i < 6; i++) {
 			if (i == 0)
@@ -59,7 +59,7 @@ public class Carta {
 				else if(naipe == 1)
 					carta += "| / \\  |\n|(_,_) |\n";
 				else if (naipe == 2)
-					carta += "|(¯\\/¯)|\n| \\  / |\n";
+					carta += "|( \\/ )|\n| \\  / |\n";
 				else if (naipe == 3)
 					carta += "| ( )  |\n|(_x_) |\n";
 			}
@@ -83,7 +83,7 @@ public class Carta {
 
 
 	public static void main(String[] args) {
-		for (int i = 0; i < 13; i++) {
+		for (int i = 2; i < 15; i++) {
 			for(int j = 0; j < 4; j++) {
 				Carta carta = new Carta(i, j);
 				System.out.println(carta);

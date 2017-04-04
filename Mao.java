@@ -30,6 +30,33 @@ public void trocarCartas(String s, Baralho b) throws IllegalArgumentException {
    }
 @Override
 	public String toString(){
-		return "";
+        String ret = "";
+        int begin, end = 0;
+
+        //Laço que unirá as strings das cartas do vetor
+        for(int i = 0; i < 6; i++){ //Cada carta ocupa 6 linhas no console
+            begin = end;
+            end = cartas[0].toString().indexOf("\n", end+1);
+
+            for(int j = 0; j < cartas.length; j++){ //Laço percorrerá todas as cartas do vetor
+                ret += cartas[j].toString().substring(begin, end); //Concatenação de cada linha das cartas
+                ret += "\t"; //Separador das cartas
+            }
+            end++;
+            ret += "\n";
+        }
+
+        return ret;
 	}
+
+	public static void main(String[] args){
+	    Mao mao = new Mao();
+	    Baralho b = new Baralho();
+
+	    b.embaralhar();
+	    b.darCartas(mao);
+
+	    System.out.println(mao.toString());
+
+    }
 }
