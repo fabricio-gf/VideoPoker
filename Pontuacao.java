@@ -13,6 +13,10 @@ public class Pontuacao {
         this.creditos = creditos;
     }
 
+    public int getCreditos(){
+        return creditos;
+    }
+
     /**
      * Metodo auxiliar que zera o contador de cartas
      */
@@ -22,6 +26,10 @@ public class Pontuacao {
         }
     }
 
+    /**
+     * Metodo auxiliar que conta as cartas e tambem verifica se a mao possui flush
+     * @param cartas
+     */
     private void analizarMao(Carta[] cartas){
         zerarCartas();
         flush = true;
@@ -50,6 +58,7 @@ public class Pontuacao {
 
         analizarMao(mao.getCartas());
 
+        //Laço que verifica quantos pares, trincas, quadras e sequencias existem naquela mao
         for(int i = 2; i < cartas.length; i++){
             if(cartas[i] == 2) par++;
             else if(cartas[i] == 3) trinca++;
@@ -85,7 +94,7 @@ public class Pontuacao {
         else
             aposta = 0;
 
-        creditos += aposta;
+        creditos += aposta; //Atualiza os creditos
         return aposta;
     }
 
