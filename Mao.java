@@ -6,6 +6,10 @@ public class Mao {
 		  this.cartas = cartas;
    }
 
+   public Carta[] getCartas(){
+      return cartas;
+   }
+
 public void trocarCartas(String s, Baralho b) throws IllegalArgumentException {
 		Carta troca[];
 		if (s != null && !s.isEmpty()) {   //se a string estiver vazia presume-se que nenhuma carta sera trocada!
