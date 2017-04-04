@@ -45,7 +45,7 @@ public class Baralho {
 	 * @return Carta[] - Vetor com as cartas distribuidas
 	 * @throws IllegalArgumentException - Se o parametro n for maior que a capacidade atual do baralho
 	 */
-	public Carta[] darCartas(int n) throws IllegalArgumentException{
+	private Carta[] darCartas(int n) throws IllegalArgumentException{
 		Carta ret[] = new Carta[n];
 
 		if(n > 52 - pos) throw new IllegalArgumentException("O baralho não possui cartas suficientes");
@@ -56,6 +56,15 @@ public class Baralho {
 		}
 
 		return ret;
+	}
+
+	/**
+	 * Método que distribui 5 cartas do baralho para uma Mao
+	 * @param m - Mao que receberá as cartas
+	 * @throws IllegalArgumentException - Se o baralho não tiver cartas suficientes
+	 */
+	public void darCartas(Mao m) throws IllegalArgumentException{
+		m.setCartas(darCartas(5));
 	}
 
 	/**
