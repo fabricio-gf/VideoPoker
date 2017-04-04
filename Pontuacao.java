@@ -9,6 +9,10 @@ public class Pontuacao {
     private int cartas[] = new int[15]; //Contador de cartas, usado para definir a pontuacao da rodada
     private boolean flush; //flag auxiliar se ha flush na mao em uma rodada
 
+    /**
+     * Construtor da classe
+     * @param creditos - Inteiro com quantos creditos o jogador inicia
+     */
     public Pontuacao(int creditos){
         this.creditos = creditos;
     }
