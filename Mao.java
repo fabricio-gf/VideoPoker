@@ -28,7 +28,7 @@ public void trocarCartas(String s, Baralho b) throws IllegalArgumentException {
 	}
 @Override
 	public String toString(){
-        String ret = "";
+        String ret = "   1    \t   2    \t   3    \t   4    \t   5\n"; //Indice das cartas
         int begin, end = 0;
 
         //Laço que unirá as strings das cartas do vetor
@@ -55,6 +55,9 @@ public void trocarCartas(String s, Baralho b) throws IllegalArgumentException {
 	    b.darCartas(mao);
 
 	    System.out.println(mao.toString());
+
+	    mao.trocarCartas("2 4 5", b);
+        System.out.println(mao.toString());
 
     }
 }
