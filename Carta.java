@@ -4,12 +4,12 @@ public class Carta {
 	private int naipe;
 	
 	public Carta(int valor, int naipe) {
-		this.valor = valor-2;
+		this.valor = valor;
 		this.naipe = naipe;
 	}
 	
 	public int getValor() {
-		return valor+2;
+		return valor;
 	}
 
 	public int getNaipe() {
@@ -17,15 +17,15 @@ public class Carta {
 	}
 	
 	private String valorToString() {
-		if (valor >= 0 && valor <= 8)
-			return Integer.toString(valor+2);
-		else if (valor == 9)
-			return "Q";
-		else if (valor == 10)
-			return "J";
+		if (valor >= 2 && valor <= 10)
+			return Integer.toString(valor);
 		else if (valor == 11)
-			return "K";
+			return "Q";
 		else if (valor == 12)
+			return "J";
+		else if (valor == 13)
+			return "K";
+		else if (valor == 14)
 			return "A";
 		else
 			return "";
@@ -42,7 +42,7 @@ public class Carta {
 				carta += s1;
 			else if (i == 1) {
 				carta += "|" + valorToString();
-				if (valor != 8)
+				if (valor != 10)
 					carta += ' ';
 				if (naipe == 0)
 					carta += "/\\  |\n";
@@ -72,7 +72,7 @@ public class Carta {
 					carta += "|  \\/";
 				else if (naipe == 3)
 					carta += "|  Y ";
-				if (valor != 8)
+				if (valor != 10)
 					carta += ' ';
 				carta += valorToString() + "|\n";
 			}
