@@ -18,13 +18,12 @@ public class VideoPoker {
 					else {
 						work = false;
 						System.out.println("Creditos insuficientes e/ou aposta invalida!\n");
-					}
 				} catch (Exception e) {
 					System.out.println("Algo deu errado! Tente novamente...\n");
 					work = false;
 				}
 			}
-			
+		
 			b.embaralhar();
 		    b.darCartas(m);
 		    System.out.println("Suas cartas:\n" + m.toString());
@@ -45,6 +44,9 @@ public class VideoPoker {
 		    }
 		    System.out.printf("Creditos ganhos nesta rodada: %d\n", p.calculaRodada(aposta, m));
 		    System.out.printf("Creditos totais: %d\n", p.getCreditos());
+		    
+		    if (p.getCreditos() == 0)//sem creditos sem rasao para continuar!
+		    	break;
 		   
 		    work = false;
 		    String s = "";
@@ -59,8 +61,11 @@ public class VideoPoker {
 				}
 			}
 		    s = s.toLowerCase();
-		    if (s.equals("n")) break;
+		    if (s.equals("n")) break;//nao deseja continuar...
 		}
-		System.out.printf("Creditos finais: %d\n", p.getCreditos());
+		if (p.getCreditos() > 0)
+			System.out.printf("Creditos finais: %d\n", p.getCreditos());
+		else
+			System.out.println("Seus creditos acabaram e voce foi expulso!\n");
 	}
 }
