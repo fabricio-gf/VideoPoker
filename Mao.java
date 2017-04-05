@@ -1,16 +1,33 @@
-
+/**
+ * Classe criada para se comportar como uma mao (conjunto de cartas)
+ * Possui metodos para determinar as cartas da mao e para retornar as cartas da mao
+ * Alem de metodos para trocar determinadas cartas e um toString
+ * @author edson
+ */
 public class Mao {
    private Carta cartas[];
-
-  public void setCartas(Carta[] cartas) {
-		  this.cartas = cartas;
+/**
+ * Metodo que recebe um array de cartas que sera utilizado como as cartas da mao
+ * @param carta[]
+ */
+   public void setCartas(Carta[] cartas) {
+	   this.cartas = cartas;
    }
-
-   public Carta[] getCartas(){
-      return cartas;
+  /**
+   * Metodo que retorna as cartas da mao
+   */
+   public Carta[] getCartas() {
+	   return cartas;
    }
-
-public void trocarCartas(String s, Baralho b) throws IllegalArgumentException {
+/**
+ * Metodo que troca determinadas cartas a partir de uma string de chars que contem quais cartas serao trocadas
+ * A string eh subdividida pelos espa√ßos e, em seguida, converte-se cada substring em um int
+ * Cada int representa qual posicao sera trocada
+ * @param string
+ * @param baralho
+ * @throws IllegalArgumentException
+ */
+   public void trocarCartas(String s, Baralho b) throws IllegalArgumentException {
 		Carta troca[];
 		if (s != null && !s.isEmpty()) {   //se a string estiver vazia presume-se que nenhuma carta sera trocada!
 			String[] numeros = s.split("\\s");
@@ -22,26 +39,32 @@ public void trocarCartas(String s, Baralho b) throws IllegalArgumentException {
 					b.trocarCartas(troca);
 					cartas[Integer.parseInt(numeros[i]) - 1] = troca[0];
 /*
- *utiliza cartas[Integer.parseInt(numeros[i])-1]
+ *utilizar cartas[Integer.parseInt(numeros[i])-1]
  *porque os valores das posicoes comecam em 1, mas o array em 0
 */
 				}
-				else throw new IllegalArgumentException("Posic√ßao inv√°lida!");
+				else throw new IllegalArgumentException("Posicao invalida!");
 			}
 		}
 	}
 @Override
+/**
+ * Metodo que retorna uma string com os caracteres que formam um conjunto de cartas (a mao)
+ */
 	public String toString(){
-        String ret = "   1    \t   2    \t   3    \t   4    \t   5\n"; //Indice das cartas
+        String ret = "";
         int begin, end = 0;
-
-        //LaÁo que unir· as strings das cartas do vetor
+        for (int i = 0;i < cartas.length; i++) {
+        	ret += "    " + Integer.toString(i+1) + "   \t";
+        }
+        ret += "\n";
+        //La√ßo que unir√° as strings das cartas do vetor
         for(int i = 0; i < 6; i++){ //Cada carta ocupa 6 linhas no console
             begin = end;
             end = cartas[0].toString().indexOf("\n", end+1);
 
-            for(int j = 0; j < cartas.length; j++){ //LaÁo percorrer· todas as cartas do vetor
-                ret += cartas[j].toString().substring(begin, end); //ConcatenaÁ„o de cada linha das cartas
+            for(int j = 0; j < cartas.length; j++){ //La√ßo percorrer√° todas as cartas do vetor
+                ret += cartas[j].toString().substring(begin, end); //Concatena√ß√£o de cada linha das cartas
                 ret += "\t"; //Separador das cartas
             }
             end++;
@@ -50,8 +73,10 @@ public void trocarCartas(String s, Baralho b) throws IllegalArgumentException {
 
         return ret;
 	}
-
-	public static void main(String[] args){
+/**
+ * Auxiliar de debug
+ */
+	public static void main(String[] args) throws Exception{
 	    Mao mao = new Mao();
 	    Baralho b = new Baralho();
 
@@ -59,9 +84,9 @@ public void trocarCartas(String s, Baralho b) throws IllegalArgumentException {
 	    b.darCartas(mao);
 
 	    System.out.println(mao.toString());
-
-	    mao.trocarCartas("2 4 5", b);
-        System.out.println(mao.toString());
-
+	    System.out.println("Digite quais cartas trocar\n");
+	    String s = EntradaTeclado.leString();
+	    mao.trocarCartas(s, b);
+	    System.out.println(mao.toString());
     }
 }

@@ -1,28 +1,48 @@
-
+/**
+ * Classe que se comporta como uma carta
+ * Possui metodos de retorno do valor e do naipe da carta
+ * e um toString
+ * @author edson
+ */
 public class Carta {
 	private int valor;
 	private int naipe;
-	
+/**
+ * Construtor da carta
+ * Inicializa a carta com um valor (2 a 14) e um naipe (0 a 3)
+ * @param valor
+ * @param naipe
+ */
 	public Carta(int valor, int naipe) {
 		this.valor = valor;
 		this.naipe = naipe;
 	}
-	
+/**
+ * Metodo que retorna o valor da carta
+ * Sendo que de 2 a 10 sao os mesmos valores
+ * e de 11 a 14, respectivamente, J, Q, K, A
+ */
 	public int getValor() {
 		return valor;
 	}
-
+/**
+ * Metodo que retorna o valor do naipe
+ * Inteiros de 0 a 3 que representam, respectivamente, ouros, espadas, copas e paus
+ */
 	public int getNaipe() {
 		return naipe;
 	}
-	
+/**
+ * Metodo auxiliar para toString
+ * Converte o int em string para impressao da carta
+ */
 	private String valorToString() {
 		if (valor >= 2 && valor <= 10)
 			return Integer.toString(valor);
 		else if (valor == 11)
-			return "Q";
-		else if (valor == 12)
 			return "J";
+		else if (valor == 12)
+			return "Q";
 		else if (valor == 13)
 			return "K";
 		else if (valor == 14)
@@ -32,6 +52,9 @@ public class Carta {
 	}
 
 @Override
+/**
+ * Metodo que retorna uma string com os caracteres que formam determinada carta
+ */
 	public String toString() {
 		String carta = "", s0 = ".------.\n", s1 = "*------*\n";
 		
@@ -80,8 +103,9 @@ public class Carta {
 		
 		return carta;
 	}
-
-
+/**
+ * Auxiliar de debug
+ */
 	public static void main(String[] args) {
 		for (int i = 2; i < 15; i++) {
 			for(int j = 0; j < 4; j++) {
@@ -93,31 +117,33 @@ public class Carta {
 }
 
 /**
- 	.------.
-	|N_  _ |
-	|( \/ )| 
-	| \  / |
-	|  \/ N|
-	`------Â´
-	
-	.------.
-	|N /\  |
-	| /  \ | 
-	| \  / |
-	|  \/ N|
-	`------Â´
-	
-	.------.
-	|N  .  |
-	|  / \ | 
-	| (_,_)|
-	|   I N|
-	`------Â´
-	
-	.------.
-	|N  _  |
-	|  ( ) | 
-	| (_x_)|
-	|   Y N|
-	`------Â´
+* Formato basico das cartas:
+* 
+* 	.------.
+*	|N     |
+*	|( \/ )| 
+*	| \  / |
+*	|  \/ N|
+*	*------*
+*	
+*	.------.
+*	|N /\  |
+*	| /  \ | 
+*	| \  / |
+*	|  \/ N|
+*	*------*
+*	
+*	.------.
+*	|N  .  |
+*	|  / \ | 
+*	| (_,_)|
+*	|   I N|
+*	*------*
+*	
+*	.------.
+*	|N  _  |
+*	|  ( ) | 
+*	| (_x_)|
+*	|   Y N|
+*	*------*
 */
