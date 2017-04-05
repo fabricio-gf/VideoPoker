@@ -18,6 +18,7 @@ public class VideoPoker {
 					else {
 						work = false;
 						System.out.println("Creditos insuficientes e/ou aposta invalida!\n");
+					}
 				} catch (Exception e) {
 					System.out.println("Algo deu errado! Tente novamente...\n");
 					work = false;
