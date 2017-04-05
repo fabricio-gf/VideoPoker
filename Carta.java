@@ -26,7 +26,8 @@ public class Carta {
 		return valor;
 	}
 /**
- * Metodo que retorna o valor do naipe 
+ * Metodo que retorna o valor do naipe
+ * Inteiros de 0 a 3 que representam, respectivamente, ouros, espadas, copas e paus
  */
 	public int getNaipe() {
 		return naipe;
