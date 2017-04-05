@@ -2,7 +2,7 @@
  * Classe criada para se comportar como uma mao (conjunto de cartas)
  * Possui metodos para determinar as cartas da mao e para retornar as cartas da mao
  * Alem de metodos para trocar determinadas cartas e um toString
- * @author edson
+ * @author edson toma - 9791305 
  */
 public class Mao {
    private Carta cartas[];
