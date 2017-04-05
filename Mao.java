@@ -2,13 +2,13 @@
  * Classe criada para se comportar como uma mao (conjunto de cartas)
  * Possui metodos para determinar as cartas da mao e para retornar as cartas da mao
  * Alem de metodos para trocar determinadas cartas e um toString
- * @author edson
+ * @author edson toma - 9791305 
  */
 public class Mao {
    private Carta cartas[];
 /**
  * Metodo que recebe um array de cartas que sera utilizado como as cartas da mao
- * @param carta[]
+ * @param cartas - array de cartas (Carta[])
  */
    public void setCartas(Carta[] cartas) {
 	   this.cartas = cartas;
@@ -23,9 +23,9 @@ public class Mao {
  * Metodo que troca determinadas cartas a partir de uma string de chars que contem quais cartas serao trocadas
  * A string eh subdividida pelos espaços e, em seguida, converte-se cada substring em um int
  * Cada int representa qual posicao sera trocada
- * @param string
- * @param baralho
- * @throws IllegalArgumentException
+ * @param s - String que contem quais cartas serao trocadas
+ * @param b - Baralho do jogo
+ * @throws IllegalArgumentException - Se a posicao digitada nao for valida
  */
    public void trocarCartas(String s, Baralho b) throws IllegalArgumentException {
 		Carta troca[];

@@ -1,3 +1,11 @@
+/**
+ * Classe que se comporta como o jogo em si
+ * Ao final de cada rodada pergunta-se se o jogador quer continuar ou parar
+ * Caso deseje parar, o jogo termina
+ * Caso continue, o jogo terminara quando o jogador desejar parar ou quando acabarem os creditos do jogador
+ * @author bruno flavio - 9791330
+ * @author edson toma - 9791305
+ */
 public class VideoPoker {
 
 	public static void main(String[] args) {
@@ -33,7 +41,7 @@ public class VideoPoker {
 		    	work = false;
 		    	while (!work) {
 		    		try{
-		    			System.out.println("Digite quais cartas trocar:\n");
+		    			System.out.println("Digite quais cartas trocar, ou enter, caso nao queira trocar:\n");
 		    			m.trocarCartas(EntradaTeclado.leString(), b);
 		    			System.out.println("Suas cartas:\n" + m.toString());
 		    			work = true;
@@ -53,7 +61,7 @@ public class VideoPoker {
 		    String s = "";
 			while(!work) {
 				try {
-					System.out.println("Deseja continuar? Y/n\n");
+					System.out.println("Deseja continuar? Y/N\n");
 					s = EntradaTeclado.leString();
 					work = true;
 				} catch (Exception e) {

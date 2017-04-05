@@ -2,7 +2,7 @@
  * Classe que se comporta como uma carta
  * Possui metodos de retorno do valor e do naipe da carta
  * e um toString
- * @author edson
+ * @author edson toma - 9791305
  */
 public class Carta {
 	private int valor;
@@ -10,8 +10,8 @@ public class Carta {
 /**
  * Construtor da carta
  * Inicializa a carta com um valor (2 a 14) e um naipe (0 a 3)
- * @param valor
- * @param naipe
+ * @param valor - valor da carta (2-10, J(11), Q(12), K(13), A(14))
+ * @param naipe - valor do naipe (ouros(0), espadas(1), copas(2), paus(3))
  */
 	public Carta(int valor, int naipe) {
 		this.valor = valor;
