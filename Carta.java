@@ -2,7 +2,7 @@
  * Classe que se comporta como uma carta
  * Possui metodos de retorno do valor e do naipe da carta
  * e um toString
- * @author edson
+ * @author edson toma - 9791305
  */
 public class Carta {
 	private int valor;
