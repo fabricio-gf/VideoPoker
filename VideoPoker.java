@@ -20,7 +20,7 @@ public class VideoPoker {
 						System.out.println("Creditos insuficientes e/ou aposta invalida!\n");
 					}
 				} catch (Exception e) {
-					System.out.println("Algo deu errado! Tente novamente\n");
+					System.out.println("Algo deu errado! Tente novamente...\n");
 					work = false;
 				}
 			}
@@ -33,7 +33,7 @@ public class VideoPoker {
 		    	work = false;
 		    	while (!work) {
 		    		try{
-		    			System.out.println("Digite quais cartas trocar\n");
+		    			System.out.println("Digite quais cartas trocar:\n");
 		    			m.trocarCartas(EntradaTeclado.leString(), b);
 		    			System.out.println("Suas cartas:\n" + m.toString());
 		    			work = true;
@@ -54,7 +54,7 @@ public class VideoPoker {
 					s = EntradaTeclado.leString();
 					work = true;
 				} catch (Exception e) {
-					System.out.println("Algo deu errado! Tente novamente\n");
+					System.out.println("Algo deu errado! Tente novamente...\n");
 					work = false;
 				}
 			}
