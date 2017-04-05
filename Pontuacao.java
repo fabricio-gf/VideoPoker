@@ -56,6 +56,7 @@ public class Pontuacao {
     public int calculaRodada(int aposta, Mao mao) throws IllegalArgumentException{
         int par = 0, trinca = 0, quadra = 0, seq = 0;
         int anterior = 0;
+        boolean primeira = true;
 
         if(creditos < aposta) throw new IllegalArgumentException("Voce nao tem creditos suficientes!");
         creditos -= aposta;
@@ -68,8 +69,11 @@ public class Pontuacao {
             else if(cartas[i] == 3) trinca++;
             else if(cartas[i] == 4) quadra++;
 
-            if(cartas[i] > 0 && i == anterior+1) seq++;
-            anterior = i;
+            if(cartas[i] > 0 && (i == anterior+1 || primeira)) {
+                seq++;
+                anterior = i;
+                primeira = false;
+            }
         }
 
         if(seq == 5 && flush && cartas[14] == 1){ //Royal Straight Flush (cartas[14] => As)
@@ -100,6 +104,20 @@ public class Pontuacao {
 
         creditos += aposta; //Atualiza os creditos
         return aposta;
+    }
+
+    /**
+     * Metodo usado apenas para Debug
+     * @param args - Sem utilidade
+     */
+    public static void main(String[] args){
+        Pontuacao p = new Pontuacao(100);
+        Mao m = new Mao();
+        Carta[] cartas = {new Carta(2, 1), new Carta (3, 1), new Carta(4, 1), new Carta(6, 3), new Carta(5, 0)};
+
+        m.setCartas(cartas);
+        System.out.println(m.toString());
+        System.out.println(p.calculaRodada(1, m));
     }
 
 }
