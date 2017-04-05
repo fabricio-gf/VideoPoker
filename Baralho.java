@@ -1,6 +1,6 @@
 /**
  * Classe desenhada para se comportar como um baralho de 52 cartas.
- * Ela implementa métodos para distribuir cartas, embaralhar e trocar cartas com o baralho
+ * Ela implementa metodos para distribuir cartas, embaralhar e trocar cartas com o baralho
  * @author Bruno Flávio - 9791330
  */
 public class Baralho {
@@ -9,12 +9,12 @@ public class Baralho {
 
 	/**
 	 * Construtor do Baralho, inicializa todas as cartas do baralho em sequencia
-	 * de 2 a Ás e de ouros à paus
+	 * de 2 a As e de ouros a paus
 	 */
 	public Baralho() {
 		int i = 0;
 
-		//Com esses dois laços são adicionados em sequencia uma carta de cada naipe
+		//Com esses dois laços sao adicionados em sequencia uma carta de cada naipe
 		for (int naipe = 0; naipe < 4; naipe++) {
 			for (int valor = 2; valor <= 14; valor++) {
 				cartas[i] = new Carta(valor, naipe);
@@ -25,13 +25,13 @@ public class Baralho {
 	}
 
 	/**
-	 * Método que reinicia o baralho (recolhe as cartas) e embaralha
+	 * Metodo que reinicia o baralho (recolhe as cartas) e embaralha
 	 */
 	public void embaralhar() {
 		Random r = new Random();
 		pos = 0; //Recolhe o baralho
 
-		//Percorre todo baralho trocando a carta com uma posição aleatória
+		//Percorre todo baralho trocando a carta com uma posição aleatoria
 		for (int i = 0; i < 52; i++) {
 			int rpos = r.getIntRand(52);
 			// Swap
@@ -42,8 +42,8 @@ public class Baralho {
 	}
 
 	/**
-	 * Método que distribui as cartas do baralho
-	 * @param n - Inteiro com o número de cartas a ser distribuido
+	 * Metodo que distribui as cartas do baralho
+	 * @param n - Inteiro com o numero de cartas a ser distribuido
 	 * @return Carta[] - Vetor com as cartas distribuidas
 	 * @throws IllegalArgumentException - Se o parametro n for maior que a capacidade atual do baralho
 	 */
@@ -61,7 +61,7 @@ public class Baralho {
 	}
 
 	/**
-	 * Método que distribui 5 cartas do baralho para uma Mao
+	 * Metodo que distribui 5 cartas do baralho para uma Mao
 	 * @param m - Mao que receberá as cartas
 	 * @throws IllegalArgumentException - Se o baralho não tiver cartas suficientes
 	 */
@@ -70,7 +70,7 @@ public class Baralho {
 	}
 
 	/**
-	 * Método que recolhe ao baralho um vetor de cartas e as trocam com novas cartas
+	 * Metodo que recolhe ao baralho um vetor de cartas e as trocam com novas cartas
 	 * @param cartas - Vetor do tipo Carta, que contém as cartas a serem trocadas
 	 */
 	public void trocarCartas(Carta[] cartas){
@@ -82,7 +82,7 @@ public class Baralho {
 	}
 
 	/**
-	 * Método usado somente para debug
+	 * Metodo usado somente para debug
 	 * @param args - Sem utilidade
 	 */
 	public static void main(String[] args) throws Exception {
