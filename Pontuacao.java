@@ -54,8 +54,8 @@ public class Pontuacao {
      * @throws IllegalArgumentException - Se a aposta for maior que o saldo de creditos
      */
     public int calculaRodada(int aposta, Mao mao) throws IllegalArgumentException{
-        int par = 0, trinca = 0, quadra = 0, seq = 0;
-        int anterior = 0;
+        int par = 0, trinca = 0, quadra = 0, seq = 0; //Contadores de pares trincas, quadras e cartas em sequencia
+        int anterior = 0; //Variavel auxiliar que armazena a ultima carta lida no laço
         boolean primeira = true;
 
         if(creditos < aposta) throw new IllegalArgumentException("Voce nao tem creditos suficientes!");
@@ -69,7 +69,7 @@ public class Pontuacao {
             else if(cartas[i] == 3) trinca++;
             else if(cartas[i] == 4) quadra++;
 
-            if(cartas[i] > 0 && (i == anterior+1 || primeira)) {
+            if(cartas[i] > 0 && (i == anterior+1 || primeira)) { //Entra no if se for a primeira carta[i] > 0 ou se a carta for sequencia da anterior
                 seq++;
                 anterior = i;
                 primeira = false;
@@ -113,7 +113,7 @@ public class Pontuacao {
     public static void main(String[] args){
         Pontuacao p = new Pontuacao(100);
         Mao m = new Mao();
-        Carta[] cartas = {new Carta(2, 1), new Carta (7, 1), new Carta(4, 1), new Carta(6, 3), new Carta(5, 0)};
+        Carta[] cartas = {new Carta(2, 1), new Carta (4, 1), new Carta(3, 1), new Carta(6, 3), new Carta(5, 0)};
 
         m.setCartas(cartas);
         System.out.println(m.toString());
