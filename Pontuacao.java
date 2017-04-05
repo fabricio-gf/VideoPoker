@@ -113,7 +113,7 @@ public class Pontuacao {
     public static void main(String[] args){
         Pontuacao p = new Pontuacao(100);
         Mao m = new Mao();
-        Carta[] cartas = {new Carta(2, 1), new Carta (3, 1), new Carta(4, 1), new Carta(6, 3), new Carta(5, 0)};
+        Carta[] cartas = {new Carta(2, 1), new Carta (7, 1), new Carta(4, 1), new Carta(6, 3), new Carta(5, 0)};
 
         m.setCartas(cartas);
         System.out.println(m.toString());
