@@ -14,6 +14,7 @@ public class Baralho {
 	public Baralho() {
 		int i = 0;
 
+		//Com esses dois laços são adicionados em sequencia uma carta de cada naipe
 		for (int naipe = 0; naipe < 4; naipe++) {
 			for (int valor = 2; valor <= 14; valor++) {
 				cartas[i] = new Carta(valor, naipe);
@@ -28,8 +29,9 @@ public class Baralho {
 	 */
 	public void embaralhar() {
 		Random r = new Random();
-		pos = 0;
+		pos = 0; //Recolhe o baralho
 
+		//Percorre todo baralho trocando a carta com uma posição aleatória
 		for (int i = 0; i < 52; i++) {
 			int rpos = r.getIntRand(52);
 			// Swap
@@ -51,7 +53,7 @@ public class Baralho {
 		if(n > 52 - pos) throw new IllegalArgumentException("O baralho não possui cartas suficientes");
 
 		for (int i = 0; i < n; i++) {
-			ret[i] = cartas[pos];
+			ret[i] = cartas[pos]; //Coloca no vetor a proxima carta do baralho
 			pos++;
 		}
 
@@ -72,8 +74,9 @@ public class Baralho {
 	 * @param cartas - Vetor do tipo Carta, que contém as cartas a serem trocadas
 	 */
 	public void trocarCartas(Carta[] cartas){
+	    //Percorre o vetor recebido e troca as cartas com as proximas do baralho
 		for(int i = 0; i < cartas.length; i++){
-			cartas[i] = this.cartas[pos];
+			cartas[i] = this.cartas[pos]; //Coloca a proxima carta do baralho no vetor
 			pos++;
 		}
 	}
