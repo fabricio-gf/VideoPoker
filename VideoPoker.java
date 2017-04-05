@@ -53,7 +53,7 @@ public class VideoPoker {
 		    String s = "";
 			while(!work) {
 				try {
-					System.out.println("Deseja continuar? y n\n");
+					System.out.println("Deseja continuar? Y/n\n");
 					s = EntradaTeclado.leString();
 					work = true;
 				} catch (Exception e) {
