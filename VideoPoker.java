@@ -13,7 +13,12 @@ public class VideoPoker {
 				try {
 					System.out.println("Digite o valor da aposta:\n");
 					aposta = EntradaTeclado.leInt();
-					work = true;
+					if (aposta <= p.getCreditos())
+						work = true;
+					else {
+						work = false;
+						System.out.println("Creditos insuficientes!\n");
+					}
 				} catch (Exception e) {
 					System.out.println("Algo deu errado! Tente novamente\n");
 					work = false;
