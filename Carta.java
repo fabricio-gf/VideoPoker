@@ -53,7 +53,7 @@ public class Carta {
 
 @Override
 /**
- * toString retorna uma string com os caracteres que formam determinada carta
+ * Metodo que retorna uma string com os caracteres que formam determinada carta
  */
 	public String toString() {
 		String carta = "", s0 = ".------.\n", s1 = "*------*\n";
