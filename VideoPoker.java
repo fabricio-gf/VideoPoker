@@ -13,11 +13,11 @@ public class VideoPoker {
 				try {
 					System.out.println("Digite o valor da aposta:\n");
 					aposta = EntradaTeclado.leInt();
-					if (aposta <= p.getCreditos())
+					if (aposta <= p.getCreditos() && aposta > 0)
 						work = true;
 					else {
 						work = false;
-						System.out.println("Creditos insuficientes!\n");
+						System.out.println("Creditos insuficientes e/ou aposta invalida!\n");
 					}
 				} catch (Exception e) {
 					System.out.println("Algo deu errado! Tente novamente\n");
